@@ -12,7 +12,7 @@ create table Agente
 	Agente_id					int				not null,
 	Nombre_Agente				varchar(80)		not null,
 	Fecha_Ingreso_Agente		date			not null,
-	Años_Antiguedad				decimal(4,2)	not null,
+	AÃ±os_Antiguedad				decimal(4,2)	not null,
 	Rango_de_Antiguedad			varchar(20)		not null,
 	Capacitacion				bit				not null,
 	Evaluador_Id				int				not null,
@@ -35,7 +35,22 @@ alter table FCR add constraint ck_FCR_Cod_FCR check (Cod_FCR like 'F&%[0-9]%')
 go
 
 
-CREATE TABLE Evaluador(	Evaluador_Id		int 			not null,	Evaluador_Nombre	varchar (80)	not null,	Cod_Cargo_Evaluador varchar	(10)	not null,	Cargo_Evaluador		varchar (50)	not null,)goalter table Evaluador add constraint pk_Evaluador primary key (Evaluador_Id)CREATE TABLE Rango_Antiguedad(	Cod_Rango			char (2)	   not null,	Rango_de_Antiguedad	varchar(20)		not null, )
+CREATE TABLE Evaluador
+(
+	Evaluador_Id		int 			not null,
+	Evaluador_Nombre	varchar (80)	not null,
+	Cod_Cargo_Evaluador varchar	(10)	not null,
+	Cargo_Evaluador		varchar (50)	not null,
+)
+go
+alter table Evaluador add constraint pk_Evaluador primary key (Evaluador_Id)
+
+
+CREATE TABLE Rango_Antiguedad
+(
+	Cod_Rango			char (2)	   not null,
+	Rango_de_Antiguedad	varchar(20)		not null,
+ )
  go
  alter table Rango_Antiguedad add constraint pk_Rango_Antiguedad_Rango_de_Antiguedad primary key (Rango_de_Antiguedad)
  alter table Rango_Antiguedad add constraint ck_Rango_Antiguedad_Cod_Rango check (Cod_Rango = '01' or Cod_Rango = '02' or Cod_Rango = '03')
@@ -110,7 +125,7 @@ create table Tabla_Llamadas
 	First_contact_Resolution	varchar(20)		not null,
 	Sub_FCR						varchar(15)		not null,
 	Fecha_Ingreso_Agente		date			not null,
-	Años_Antiguedad				decimal(4,2)	not null,
+	AÃ±os_Antiguedad				decimal(4,2)	not null,
 	Rango_de_Antiguedad			varchar(20)		not null,
 	Cantidad					int				not null,
 	NmonitoreoXcontacto			varchar(50)		not null,
